@@ -1,0 +1,272 @@
+#mapid{
+    height: 590px;
+	width: inherit;
+}
+
+.blueBlock{
+    height: 60px;
+    width: 450px;
+    position: relative;
+    left: 400px;
+    background: #2c74b4;
+}
+
+.icona{
+    border-style: solid;
+    border-color: black;
+    padding: 0px
+}
+
+.icona1{
+    position: relative;
+    left: 90px;
+    top: 3px
+}
+
+.icona2{
+    position: relative;
+    left: 220px;
+    top: 15px
+}
+
+.icona3{
+    position: relative;
+    left: 880px;
+    top: 15px
+}
+
+.icona4{
+    position: relative;
+    left: 1080px;
+    top: 5px
+}
+
+.icona5{
+    position: relative;
+    left: 110px
+}
+
+.icona6{
+    position: relative;
+    left: 260px;
+    top: 5px
+}
+
+.icona7{
+    position: relative;
+    left: 900px;
+    top: 5px
+}
+
+.img1{
+    width: 80px;
+    height: 55px;
+    position: absolute;
+    text-align: left
+}
+
+.img2{
+    width: 150px;
+    height: 30px;
+    position: absolute;
+    text-align: left
+}
+
+.img3{
+    width: 150px;
+    height: 30px;
+    position: absolute;
+    text-align: left
+}
+
+.img4{
+    width: 80px;
+    height: 50px;
+    position: absolute;
+    text-align: left
+}
+
+.img5{
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    text-align: left
+}
+
+.img6{
+    width: 90px;
+    height: 50px;
+    position: absolute;
+    text-align: left
+}
+
+.img7{
+    width: 60px;
+    height: 50px;
+    position: absolute;
+    text-align: left
+}
+
+.img8{
+    width: 60px;
+    height: 50px;
+    position: absolute;
+    text-align: left
+}
+
+.pannelloAlto{
+    color: white;
+    position: relative;
+    top: 6px;
+    font-size: 18px
+}
+
+.pannelloBasso{
+    color: white;
+    font-size: 13px
+}
+
+.info1{
+    font-size: 13px
+}
+
+.noBorder{
+    border-width: 0px
+}
+
+.button{
+    width: 50px;
+    height: 50px
+}
+
+.City{
+    font-size: 35px;
+    position: relative;
+    top: -5px;
+    left: -10px
+}
+
+.noPannello{
+    display: none;
+}
+
+.scegliCity{
+    width: 150px;
+    position: relative;
+}
+
+.Info{
+    font-size: 30px;
+    position: relative;
+    top: 8px;
+}
+
+.Clock{
+    font-size: 35px;
+    position: relative;
+    top: -5px;
+    left: -5px
+}
+
+.scegliOrario{
+    width: 150px;
+    position: relative;
+}
+
+.Car{
+    font-size: 35px;
+    position: relative;
+    left:-5px;
+    top:-5px
+}
+
+.Walking{
+    font-size: 35px;
+    position: relative;
+    top:-5px
+}
+
+.Hospital{
+    font-size: 35px;
+    position: relative;
+    top: -5px;
+    left: -5px
+}
+
+.Parking{
+    font-size: 35px;
+    position: relative;
+    top: -5px;
+    left: -3px
+}
+
+.Shopping{
+    font-size: 35px;
+    position: relative;
+    top: -5px;
+    left: -7px
+}
+
+.modal-style{
+    border: 5px groove #2c74b4;
+    width: 1050px;
+    height: 540px;
+    position: relative;
+    top: 45px;
+    right: 220px
+}
+
+.tooltipPOI{
+	color: #000;
+	font-weight: bold;
+	text-align: center;
+	background-color: transparent;
+	border-color: transparent;
+	box-shadow: none
+}
+
+#pannelloTempo {
+    opacity: 0.9;
+    background: #FFF;
+    background-attachment: fixed;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    height: 350px;
+    width: 140px;
+    font-size: 14px;
+}
+
+#headingTempo {
+    opacity: 1;
+    background: #FFF;
+    background-attachment: fixed;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    height: 50px;
+    width: 150px;
+}
+
+#legendColor {
+    align-content: left;
+}
+
+#colorSpan {
+    width: 10px;
+    height: 10px;
+    font: 10px/12px Montserrat, sans-serif;
+    float: left;
+    margin-left: 9px;
+    margin-top: 10px;
+    opacity: 0.7;
+}
+
+#livelliTempo {
+    height: 10px;
+    width: 60px;
+    font: 14px/16px Montserrat, sans-serif;
+    float:left;
+    margin-left: 30px;
+    margin-top: 10px;
+}

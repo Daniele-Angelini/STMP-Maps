@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>STMP Maps Design</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/leaflet.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+        <div class="container-fluid">
+            <div class="col-sm-12">
+                <div class="panel panel-default" >
+                    <div class="panel-heading icona" >
+                        <div class= "icona1">
+                            <img src="images/iad.png" class="img1">
+                        </div>
+                        <div class="icona2">
+                            <img src="images/eidonlab.png" class="img2">
+                        </div>
+                        <div class="icona3">
+                            <img src="images/technetic.png" class="img3">
+                        </div>
+                        <div class="icona4">
+                            <img src="images/merendels.png" class="img4">
+                        </div>
+                        <div class="center blueBlock">
+                            <div class="text-center pannelloAlto" >
+                                <strong>Smart Traffic Management and Planning (STMP)</strong><br>
+                                Mappa accessibilità
+                                <span class="h4" id="information" data-toggle="tooltip tooltip-inner" data-placement="bottom" data-original-title="Tempo di percorrenza per il raggiungimento
+                                di servizi: pronto soccorso, centro commerciale, parcheggio">
+                                    <sup>
+                                        <i id="info" class="fas fa-info info" aria-hidden="true"></i>
+                                    </sup>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="mapid" class="leaflet-container leaflet-touch leaflet-retina leaflet-safari leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" >
+                        <div class="leaflet-control-container"style = "position:relative;top:80px">
+                            <div class = "leaflet-right" style = "position:absolute">
+                                <div class="panel panel-default leaflet-control" style="background-color:transparent">
+                                    <div class="panel-body">
+                                        <a id="openLegenda" class="btn btn-default noPannello" style="color:#2c74b4;position:relative;left:5px;">
+                                            <i class="fas fa-info Info" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default leaflet-control noBorder" >
+                                    <div class="panel-body">
+                                        <button id="closeLegenda" type="button" class="close" aria-label="Close">
+                                            <span class="h3" aria-hidden="true">×</span>
+                                        </button>
+                                        <div id="pannelloLegenda" style="height:300px">
+                                            <div class="text-center">
+                                                Tempo di percorrenza <br> (minuti)
+                                            </div>
+                                            <div id='tavolaColori'></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="leaflet-control-container" style = "position:relative;top:80px">
+                            <div class = "leaflet-left" style = "position:absolute">
+                                <div class="panel panel-default leaflet-control noBorder">
+                                    <div class="panel-body">
+                                        <a id="openCity" type="button" class="btn btn-default button" style="color:#C062FF;">
+                                            <i class="fas fa-city City" aria-hidden="true"></i>
+                                        </a>
+                                        <button id="closeCity" type="button" class="close noPannello" aria-label="Close">
+                                            <span class="h3" aria-hidden="true">×</span>
+                                        </button>
+                                        <div id="pannelloCity" class="noPannello">
+                                            <div class="text-center">
+                                                Scegliere la città
+                                            </div>
+                                            <div class="dropdown bootstrap-select text-center">
+                                                <select data-width="100%" data-style="btn-light btn-sm" class="scegliCity" data-toggle="tooltip">
+                                                    <option selected>Salerno</option>
+                                                    <option disabled>Napoli</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="leaflet-control-container" style = "position:relative;top:130px">
+                            <div class = "leaflet-left" style = "position:absolute">
+                                <div class="panel panel-default leaflet-control noBorder">
+                                    <div class="panel-body">
+                                        <a id="openOrari" type="button" class="btn btn-default button" style="color:#2c74b4;">
+                                            <i class="fas fa-clock Clock" aria-hidden="true"></i>
+                                        </a>
+                                        <button id="closeOrari" type="button" class="close noPannello" aria-label="Close">
+                                            <span class="h3" aria-hidden="true">×</span>
+                                        </button>
+                                        <div id="pannelloOrari" class="noPannello">
+                                            <div class="text-center">
+                                                Scegliere l'orario
+                                            </div>
+                                            <div class="dropdown bootstrap-select text-center">
+                                                <select class="scegliOrario" data-width="100%" data-style="btn-light btn-sm" data-toggle="tooltip">
+                                                    <option>07:00</option>
+                                                    <option>10:00</option>
+                                                    <option>13:00</option>
+                                                    <option>16:00</option>
+                                                    <option>19:00</option>
+                                                    <option>22:00</option>
+                                                    <option>media</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="leaflet-control-container" style = "position:relative;top:240px">
+                            <div class = "leaflet-left" style = "position:relative">
+                                <div class = "panel panel-default leaflet-control" style="width:200px;height:50px;background-color:transparent">
+                                    <div class = "panel-body">
+                                        <a id="bus-alt" class="btn btn-default button">
+                                            <span class="h4" id="bus-altTooltip" data-toggle="tooltip tooltip-inner" data-placement="right" data-original-title="Trasporto pubblico">
+                                                <i class="fas fa-bus-alt Hospital" style="color:#2c74b4"></i>
+                                            </span>
+                                        </a>
+                                        <a id="car" class="btn btn-default button">
+                                            <span class="h4" >
+                                                <i class="fas fa-car Car" style="color:#2c74b4"></i>
+                                            </span>
+                                        </a>
+                                        <a id="walking" class="btn btn-default button">
+                                            <span class="h4" id="walkingTooltip" data-toggle="tooltip tooltip-inner" data-placement="top" data-original-title="A piedi">
+                                                <i class="fas fa-walking Walking" style="color:#2c74b4"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="leaflet-control-container" style = "position:relative;top:300px">
+                            <div class = "leaflet-left" style = "position:relative">
+                                <div class = "panel panel-default leaflet-control" style="width:0px;height:0px;">
+                                    <div class = "panel-body">
+                                        <a id="hospital" type="button" class="btn btn-default button">
+                                            <span class="h4" id="hospitalTooltip" data-toggle="tooltip tooltip-inner" data-placement="right" data-original-title="Pronto Soccorso">
+                                                <i class="fas fa-hospital-symbol Hospital" style="color:red"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class = "panel-body">
+                                        <a id="shopping" type="button" class="btn btn-default button">
+                                            <span class="h4" id="shoppingTooltip" data-toggle="tooltip tooltip-inner" data-placement="right" data-original-title="Centro Commerciale">
+                                                <i class="fas fa-shopping-cart Shopping" style="color:green"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <br>
+                                    <div class = "panel-body">
+                                        <a id="parking" class="btn btn-default button">
+                                            <span class="h4" id="parkingTooltip" data-toggle="tooltip tooltip-inner" data-placement="right" data-original-title="Parcheggio">
+                                                <i class="fas fa-parking Parking" style="color:#2c74b4"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer icona">
+                        <div class="icona5">
+                            <img src="images/logoFESR14_20.jpg" class="img5" >
+                        </div>
+                        <div class="icona6">
+                            <img src="images/Logo-Unione-Europea.jpg" class="img6">
+                        </div>
+                        <div class="icona7">
+                            <img src="images/italy.jpeg" class="img7">
+                        </div>
+                        <div class="icona4">
+                            <img src="images/logo campania.png" class="img8">
+                        </div>
+                        <div class="center blueBlock">
+                            <div class="text-center pannelloBasso">
+                                Applicazione <strong data-toggle="modal" data-target="#myModal">Maps </strong>
+                                <i class="fas fa-info info" aria-hidden="true" data-toggle="modal" data-target="#myModal"></i><br>
+                                STMP - sistema integrato per il supporto delle pubbliche amministrazioni nella
+                                pianificazione e ottimizzazione della gestione del traffico cittadino
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content modal-style">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title text-center" style="color:#2c74b4">Come funziona Maps</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p style="font-size: 13px;">La mappa della città di Salerno mostra la problematica di accessibilità mediante una mappa isocrona colorata con diversi colori
+                            e varie gradazioni.<br> In generale l'<u style="color:#2c74b4">accessibilità</u> è il tempo impiegato per raggiungere una determinata zona, un punto o un servizio da
+                        ogni punto sulla mappa e dipende dal modo in cui il cittadino si muove in città (mezzo privato/pubblico, a piedi, etc). <br> La mappa
+                        isocrona individua aree colorate delle stesso colore (esagoni) comprendenti quei punti da cui è possibile raggiungere nello stesso tempo
+                        servizi dello stesso tipo dislocati in città.<br> L'uso dei colori suddivide i tempi di percorrenza in precisi intervalli temporali. <br><br>Maps
+                            considera <u style="color:#2c74b4">tre modalità di spostamento,</u> <u style="color:#2c74b4">«automobile»,</u> <u style="color:#2c74b4">«mezzo pubblico»
+                                e «a piedi»</u> e tre tipologie di <u style="color:#2c74b4">servizi:
+                                «pronto soccorso»,</u> <u style="color:#2c74b4">«centro commerciale» e «parcheggio».</u><br> Le modalità «automobile» e «mezzo pubblico» sono
+                            disponibili per «pronto soccorso» e «centro commerciale».<br>
+                            La modalità «a piedi» è disponibile per «parcheggio» con lo scopo di mostrare l' «accessibilità a piedi delle zone limitrofe al parcheggio» più o
+                            meno vicine in base al tempo, ovvero la capacità di quest'ultimo di servire la città nel punto in cui si trova.<br><br>
+                        Dopo la scelta di uno dei tre servizi e della modalità di trasporto, la mappa mostra la posizione dei punti interessati.<br> Ad esempio se viene selezionato
+                            «pronto soccorso»:<br>
+                            - ciascun esagono si colora secondo il pronto soccorso <u style="color:#2c74b4">più vicino</u> a sè in termini di tempo;<br>
+                        - alla selezione di un esagono, vengono visualizzati <u style="color:#2c74b4">distanza, tempi e percorso verso il pronto
+                                soccorso più vicino.</u><br>Selezionando un pronto soccorso di interesse (o un centro commerciale), la colorazione della mappa viene aggiornata
+                            verso quel solo punto secondo la modalità di trasporto già scelta, tranne <u style="color:#2c74b4">per la selezione di uno dei parcheggi</u>; quest'ultima infatti comporta
+                            l'aggiornamento della mappa secondo la modalità «automobile».</p>
+                    </div>
+                    <div class="modal-header">
+                        <h4 class="modal-title text-center" style="color:#2c74b4">Qual è l'obiettivo della pubblica amministrazione</h4>
+                    </div>
+                    <div class="modal-body" style="font-size:13px">
+                        <p>Maps mette a disposizione mappe evolute basate sull'analisi dell'accessibilità, che consentono una visione immediata dei tempi di
+                        percorrenza per il raggiungimento di determinati servizi. In questo modo vengono facilmente identificate le <u style="color:#2c74b4">
+                                zone critiche su cui concentrare gli interventi operativi.</u></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+	<script src="js/jquery.min.js" type="text/javascript"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="js/leaflet.js" type="text/javascript"></script>
+	<script src="js/functions.js" type="text/javascript"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" type="text/javascript"></script>
+</body>
+</html>
+
+
