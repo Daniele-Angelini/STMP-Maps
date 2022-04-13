@@ -1,6 +1,6 @@
 import psycopg2 as psycopg2
 
-conn = psycopg2.connect("dbname='maps' host='cloud.nergal.it' user='mapsuser' password='settembre22'")
+conn = psycopg2.connect("dbname='maps' host='cloud.nergal.it' user='mapsuser' password='*********'")
 cursor = conn.cursor()
 
 """ esempio di insert """
