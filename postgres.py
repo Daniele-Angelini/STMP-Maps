@@ -10,7 +10,7 @@ collection_route = db['route']
 collection_line = db['line']
 collection_pointInterest = db['pointInterest']
 
-conn = psycopg2.connect("dbname='maps' host='cloud.nergal.it' user='mapsuser' password='settembre22'")
+conn = psycopg2.connect("dbname='maps' host='cloud.nergal.it' user='mapsuser' password='*********'")
 cursor = conn.cursor()
 
 cursor.execute("delete from tratte")
