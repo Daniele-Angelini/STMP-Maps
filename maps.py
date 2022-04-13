@@ -4,7 +4,7 @@ import psycopg2
 import os
 import json
 
-dbmaps = "dbname='maps' host='cloud.nergal.it' user='mapsuser' password='settembre22'"
+dbmaps = "dbname='maps' host='cloud.nergal.it' user='mapsuser' password='********'"
 root = os.path.dirname(__file__)
 
 """
